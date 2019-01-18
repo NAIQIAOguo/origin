@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <title>CSE 411 - Project 5 - Student Name Goes Here</title>
+</head>
+
+<body>
+    <h1>Twitter Trend Visualizer</h1>
+    <input type="text" id="query" />
+    <button id="search">Search</button>
+    <div id="chart" style="margin-top: 5px; width:200px; height:200px;">Chart Area</div>
+</body>
+<script>
+    // Note to students: you should make something much more beautiful and
+    // functional than this... it's just a starting point
+    let search = document.getElementById("search");
+    let query = document.getElementById("query");
+    let chart = document.getElementById("chart");
+
+    search.addEventListener("click", function () {
+
+        window.alert("http://localhost:5000/data/man");
+
+
+        $.ajax({
+                type: "GET",
+                url: "http://localhost:5000/data/" + $("#query").val(),
+                success: function(result) {chart.style.backgroundColor = "#ff0000";},
+                error: function(error) {window.alert("Error");}
+        });
+
+        // $.ajax({
+        //     url: "http://localhost:5000/naiqaio/"+ $("#query").val(),
+        //     type: "GET",
+        //     success: function(result){
+
+        //         chart.style.backgroundColor = "#ff0000";
+        //     },
+        //     error: function(error){
+        //         window.alert("Error");
+        //         chart.style.backgroundColor = "#ffffff";
+        //     }
+        // });
+
+    }, false);
+</script>
+
+</html>
